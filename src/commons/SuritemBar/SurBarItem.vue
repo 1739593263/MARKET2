@@ -1,6 +1,6 @@
 <template>
-  <div>
-
+  <div class="sur-item">
+    <slot></slot>
   </div>
 </template>
 
@@ -11,5 +11,11 @@
 </script>
 
 <style scoped>
+  .sur-item{
+    width: 18vw;
+    text-align: center;
+    font-size: 20px;
 
+
+  }
 </style>

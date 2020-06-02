@@ -1,5 +1,7 @@
 <template>
-  $END$
+  <div id="create-navi-item">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -9,5 +11,9 @@
 </script>
 
 <style scoped>
+  #create-navi-item{
+
+
+  }
 
 </style>
