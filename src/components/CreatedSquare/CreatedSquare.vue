@@ -1,7 +1,8 @@
 <template>
   <div id="created-square" @click="enterCreate">
 <!--    <slot></slot>-->
-    <b>{{squareItem}}</b>
+      <img :src="require('@/static/survey_created_classify/'+squareItem.url)"/>
+      <b>{{squareItem.name}}</b>
   </div>
 </template>
 
@@ -10,13 +11,16 @@
     name: "CreatedSquare",
     props:{
       squareItem:{
-        type:String,
-        default:"",
+          type: Object,
+          default(){
+              return [];
+          },
       }
     },
     methods:{
       enterCreate(){
-        this.$router.push({name:'createdPage'});
+        let goCreate = this.$router.resolve({name:'createdPage',query:{produceName: this.squareItem.name}});
+        window.open(goCreate.href,"_blank")
       }
     }
   }
@@ -24,8 +28,8 @@
 
 <style scoped>
   #created-square{
-    width: 15vw;
-    height: 30vh;
+    width: 10vw;
+    height: 17vh;
     border-radius: 5px;
     background-color: white;
     margin-left: 25px;
@@ -36,9 +40,20 @@
     box-shadow: -3px 3px 10px rgba(100,100,100,.3);
   }
 
+  #created-square font{
+      font-family: Georgia;
+      font-weight: bolder;
+  }
+
   #created-square:hover{
     opacity: 0.5;
     cursor: pointer;
     box-shadow: -3px 3px 10px rgba(100,100,100,.3);
+  }
+
+  #created-square img{
+      padding: 1vw;
+      width: 10vw;
+      height: 14vh;
   }
 </style>

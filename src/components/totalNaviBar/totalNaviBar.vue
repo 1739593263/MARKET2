@@ -50,4 +50,12 @@
 </script>
 
 <style scoped>
+  #total-navi-bar{
+    position: fixed;
+    top: 0px;
+    background-color: white;
+    /*left: 0px;*/
+    /*right: 0px;*/
+    z-index: 9;
+  }
 </style>

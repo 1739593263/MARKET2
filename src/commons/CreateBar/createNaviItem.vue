@@ -12,8 +12,7 @@
 
 <style scoped>
   #create-navi-item{
-
-
+    vertical-align: middle;
   }
 
 </style>

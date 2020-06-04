@@ -4,7 +4,7 @@ import cors from 'cors'
 export function request(config){
 
   const instance = axios.create({
-    baseURL:"http://localhost:8080",
+    baseURL:"http://10.0.0.116:8080",
     timeout:5000,
   });
 

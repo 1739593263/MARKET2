@@ -25,15 +25,19 @@
 
 <style scoped>
   .square-field{
-    margin-top: 5px;
+    padding-top: 8px;
     padding-right: 23vw;
     padding-left: 23vw;
 
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+    background-color: rgba(100,100,100,.1);
 
     position:absolute;
     top:12vh;
+
+    width: 100vw;
+    height: 100vh;
   }
 </style>

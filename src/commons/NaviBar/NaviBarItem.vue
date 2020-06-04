@@ -16,7 +16,7 @@
   #navi-bar-item{
     /*flex:1;*/
     text-align: center;
-    height: 80px;
+    height: 5vh;
     margin-top: 0.8vh;
   }
 

@@ -3,7 +3,6 @@
     <span>
       <slot></slot>
     </span>
-
   </div>
 </template>
 

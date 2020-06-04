@@ -1,7 +1,10 @@
 <template>
   <div id="created-page">
     <ele-list ref="pButton" @show="trans"></ele-list>
-    <created-blank ref="blank" :toBlank="this.toBlank" @remove="remove"></created-blank>
+    <created-blank ref="blank"
+                   :toBlank="this.toBlank"
+                   :param="this.params"
+                   @remove="remove"></created-blank>
   </div>
 </template>
 
@@ -18,8 +21,10 @@
     data(){
       return{
         // toBlank:false,
-
         toBlank: 0,
+        params:{
+          name:"",
+        }
       }
     },
     methods:{
@@ -33,20 +38,30 @@
         const removeFun = this.$refs.pButton.removeEle;
         removeFun(Alphabet);
         // console.log(remove);
+      },
+
+      getParams(){
+        this.params.name = this.$route.query.produceName;
       }
+    },
+    created() {
+      this.getParams();
     }
   }
 </script>
 
 <style scoped>
   #created-page{
-    margin-left: 20vw;
-    margin-right: 20vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
+
+    background-color:  rgba(100,100,100,.1);;
+
     /*margin-top: 10vh;*/
 
     display: flex;
     width: 100vw;
     position: absolute;
-    top: 8vh;
+    top: 7vh;
   }
 </style>
