@@ -8,55 +8,6 @@
         <button type="button" class="btn btn-info btn-lg btn-block" @click="created">
           <span>创建商品</span>
         </button>
-
-<!--        data-toggle="modal" data-target="#new"-->
-<!--        <div class="modal" id="new">-->
-<!--          <div class="modal-dialog">-->
-<!--            <div class="modal-content">-->
-
-<!--              &lt;!&ndash; Modal Header &ndash;&gt;-->
-<!--              <div class="modal-header">-->
-<!--                <h4 class="modal-title">Create your product</h4>-->
-<!--                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-<!--              </div>-->
-<!--              <form>-->
-<!--                &lt;!&ndash; Modal body &ndash;&gt;-->
-<!--                <div class="modal-body">-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="usr">Name:</label>-->
-<!--                    <input type="text" class="form-control" id="usr" v-model="transDatas.name">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="id">ID:</label>-->
-<!--                    <input type="text" class="form-control" id="id" v-model="transDatas.id">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="A">attributeA:</label>-->
-<!--                    <input type="text" class="form-control" id="A" v-model="transDatas.A">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="B">attributeB:</label>-->
-<!--                    <input type="text" class="form-control" id="B" v-model="transDatas.B">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="C">attributeC:</label>-->
-<!--                    <input type="text" class="form-control" id="C" v-model="transDatas.C">-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                &lt;!&ndash; Modal footer &ndash;&gt;-->
-<!--                <div class="modal-footer">-->
-<!--                  <button type="button"-->
-<!--                          class="btn btn-block"-->
-<!--                          data-dismiss="modal"-->
-<!--                          @click="Upload">Upload</button>-->
-<!--                  &lt;!&ndash;              <router-link :to="{name:'warehouse', params:{id:this.id, name:this.name}}"></router-link>&ndash;&gt;-->
-<!--                </div>-->
-<!--              </form>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
       </sur-bar-item>
 
       <sur-bar-item slot="middle">
@@ -70,26 +21,27 @@
 <!--        </nav>-->
 
         <ul class="nav flex-column navigate">
-          <li class="nav-item active">
-            <a class="nav-link navbar-brand" href="#">
-              <img class="navbar-brand" src="@/assets/img/itemBar/inbox.svg" alt="">全部商品
-            </a>
+          <li class="nav-item nav-link navbar-brand d-inline-flex"
+              @click="isClicked(index)"
+              :class="{active: curClick === index}"
+              v-for="(item,index) in surItems">
+              <img class="navbar-brand" :src="require('@/assets/img/itemBar/'+index+'.svg')" alt="">{{item}}
           </li>
-          <li class="nav-item">
-            <a class="nav-link navbar-brand" href="#">
-              <img class="navbar-brand" src="@/assets/img/itemBar/grade-24px.svg" alt="">标记商品
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbar-brand" href="#">
-              <img class="navbar-brand" src="@/assets/img/itemBar/folder-24px.svg" alt="">商品文件
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled navbar-brand" href="#" tabindex="-1" aria-disabled="true">
-              <img class="navbar-brand" src="@/assets/img/itemBar/delete-24px.svg" alt="">删除商品
-            </a>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link navbar-brand" href="#">-->
+<!--              <img class="navbar-brand" src="@/assets/img/itemBar/grade-24px.svg" alt="">标记商品-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link navbar-brand" href="#">-->
+<!--              <img class="navbar-brand" src="@/assets/img/itemBar/folder-24px.svg" alt="">商品文件-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link disabled navbar-brand" href="#" tabindex="-1" aria-disabled="true">-->
+<!--              <img class="navbar-brand" src="@/assets/img/itemBar/delete-24px.svg" alt="">删除商品-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
       </sur-bar-item>
 
@@ -124,6 +76,14 @@
       SurBarItem,
       SurItemBar
     },
+    props:{
+      surItems: {
+          type: Array,
+          default(){
+              return []
+          }
+      },
+    },
     data() {
       return {
         transDatas: {
@@ -132,7 +92,8 @@
           A: null,
           B: null,
           C: null,
-        }
+        },
+        curClick:0,
       }
     },
     methods:{
@@ -143,7 +104,7 @@
           console.log(res)
         }).catch((err) => {
           console.log(err);
-        })
+        });
         // this.up[0]=this.id;
         // this.up[1]=this.name
         // this.$bus.$emit("load");
@@ -155,8 +116,8 @@
 
         // this.$router.push("/warehouse");
       },
-      render: function(){
-
+      isClicked(index){
+        this.curClick = index
       },
       created(){
         this.$router.push({name: "createProduct"})
@@ -167,26 +128,37 @@
 
 <style scoped>
   .total-item-bar{
-    width: 20vw;
-
+    width: 21vw;
+    height: 100vh;
     position: absolute;
+    text-align: center;
     top: 6vh;
+
+    background-color:  rgba(90,70,100,.1);
   }
 
   .navigate img{
-    /*text-align: center;*/
+    text-align: center;
+    margin-right: 1.8vw;
   }
 
   .nav-item{
+    width: 18vw;
     border-top: 1px solid lightgray;
+    border-radius:0px 15px 15px 0px;
+    padding-left:3vw;
+    font-weight: bolder;
     text-align: left;
   }
 
   .nav-item:hover{
-    background-color: lightgray;
+    /*background-color: lightgray;*/
+    cursor: pointer;
+    color: white;
   }
 
   .active{
     background-color: lightgray;
+    color: white;
   }
 </style>

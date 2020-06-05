@@ -1,5 +1,6 @@
 <template>
   <div id="created-page">
+
     <ele-list ref="pButton" @show="trans"></ele-list>
     <created-blank ref="blank"
                    :toBlank="this.toBlank"
@@ -23,11 +24,16 @@
         // toBlank:false,
         toBlank: 0,
         params:{
+          produceItem:"",
           name:"",
         }
       }
     },
     methods:{
+      addressCheck(){
+        this.$emit("isShowNavi",false);
+      },
+
       trans(show){
         // this.toBlank = !this.toBlank;
         // this.$refs.blank.$createElement("<h1>BLANK</h1>")
@@ -41,10 +47,12 @@
       },
 
       getParams(){
+        this.params.produceItem = this.$route.query.produceItem
         this.params.name = this.$route.query.produceName;
       }
     },
     created() {
+      this.addressCheck();
       this.getParams();
     }
   }
@@ -55,13 +63,12 @@
     padding-left: 20vw;
     padding-right: 20vw;
 
-    background-color:  rgba(100,100,100,.1);;
-
+    background-color:  rgba(100,100,100,.1);
     /*margin-top: 10vh;*/
 
     display: flex;
     width: 100vw;
     position: absolute;
-    top: 7vh;
+    top: 0px;
   }
 </style>

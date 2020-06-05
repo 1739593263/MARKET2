@@ -2,7 +2,7 @@
   <div id="created-square" @click="enterCreate">
 <!--    <slot></slot>-->
       <img :src="require('@/static/survey_created_classify/'+squareItem.url)"/>
-      <b>{{squareItem.name}}</b>
+      <p class="font-weight-bold"><strong>{{squareItem.name}}</strong></p>
   </div>
 </template>
 
@@ -15,11 +15,12 @@
           default(){
               return [];
           },
-      }
+      },
+      item:"",
     },
     methods:{
       enterCreate(){
-        let goCreate = this.$router.resolve({name:'createdPage',query:{produceName: this.squareItem.name}});
+        let goCreate = this.$router.resolve({name:'createdPage',query:{produceItem: this.item, produceName: this.squareItem.name}});
         window.open(goCreate.href,"_blank")
       }
     }
@@ -40,10 +41,10 @@
     box-shadow: -3px 3px 10px rgba(100,100,100,.3);
   }
 
-  #created-square font{
-      font-family: Georgia;
-      font-weight: bolder;
-  }
+  /*#created-square font{*/
+  /*    font-family: Georgia;*/
+  /*    font-weight: bolder;*/
+  /*}*/
 
   #created-square:hover{
     opacity: 0.5;

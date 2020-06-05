@@ -9,7 +9,7 @@
     name: "admin",
     methods:{
       addressCheck(){
-        this.$emit("note",true);
+        this.$emit("isShowNavi",true);
       }
     },
     created(){

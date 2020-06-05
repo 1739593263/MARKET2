@@ -11,6 +11,7 @@
                   @mouseover="hover[index]=true"
                   @mouseleave="isFalse(index)" >
                 <img v-if="hover[index]" :src="require('@/static/survey_created_barClassify/'+item+'-black.svg')" alt="">
+
                 <img v-if="!hover[index]" :src="require('@/static/survey_created_barClassify/'+item+'-white.svg')" alt="">
                 <b>{{item}}</b>
             </span>
@@ -113,10 +114,29 @@
     cursor: pointer;
   }
 
-  .created-item::before{
-      /*content: "→";*/
-      /*background-image: url("");*/
+  .created-item div{
+      width: 2vw;
+      height: 1vh;
+      float: top;
+
+      margin-left: 1vw;
+      /*position: relative;*/
+      /*top: 0px;*/
   }
+
+  /*.created-item.active div::before{*/
+  /*    content: "\ | /";*/
+  /*    border-radius: 50%;*/
+  /*    text-align: center;*/
+  /*    vertical-align: text-top;*/
+
+  /*    font-size: .6vw;*/
+  /*    font-weight: bold;*/
+  /*    width: 2px;*/
+  /*    height: .4vw;*/
+  /*    color: yellow;*/
+  /*    margin-left: .5vw;*/
+  /*}*/
 
   .created-item span{
     text-align: center;
@@ -127,17 +147,19 @@
 
     text-align: center;
     margin-right: 7vw;
-    padding-top: 1vw;
+    padding-top: .7vw;
     /*vertical-align: middle;*/
     font-size: 23px;
     padding-bottom: 16px;
   }
 
   .created-bar img {
-      width: 3vw;
+      width: 2vw;
       height: 4vh;
-      margin-left: 1vw;
       vertical-align: middle;
+      margin: 0vw .6vw 0vw 1.3vw;
+      /*position: relative;*/
+      /*top:-3.5vh;*/
   }
 
   .active{

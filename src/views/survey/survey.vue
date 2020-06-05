@@ -1,8 +1,9 @@
 <script src="../../main.js"></script>
 <template>
   <div>
-    <total-item-bar/>
+    <total-item-bar :surItems="this.surItems"/>
     <blank-component/>
+
   </div>
 </template>
 
@@ -14,9 +15,9 @@
 
   export default {
     name: "survey",
-    props:{
-      note:{
-
+    data(){
+      return{
+        surItems:['全部商品','标记商品','商品文件','删除商品'],
       }
     },
     components:{
@@ -33,7 +34,7 @@
     },
     methods:{
       addressCheck(){
-        this.$emit("note",true);
+        this.$emit("isShowNavi",true);
       }
     },
     created(){

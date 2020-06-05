@@ -1,8 +1,8 @@
 <template>
   <div>
-    <create-navi-bar :items="['A类用户','B类用户','C类用户']" @index="getIndex"></create-navi-bar>
+    <create-navi-bar :items="items" @index="getIndex"></create-navi-bar>
 <!--    <h1>CREATED</h1>-->
-    <square-field :produces="this.produces[point]"/>
+    <square-field :item="items[point]" :produces="this.produces[point]"/>
   </div>
 </template>
 
@@ -18,6 +18,7 @@
       return{
         produces:[],
         point: 0,
+        items:['A类用户','B类用户','C类用户']
       }
     },
     components:{

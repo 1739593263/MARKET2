@@ -1,6 +1,6 @@
 <template>
   <div class="square-field">
-    <created-square v-for="(produce,index) in produces" :squareItem="produce" :key="index"/>
+    <created-square :item="item" v-for="(produce,index) in produces" :squareItem="produce" :key="index"/>
   </div>
 </template>
 
@@ -15,7 +15,8 @@
         default(){
           return [];
         }
-      }
+      },
+      item:"",
     },
     components:{
       CreatedSquare,

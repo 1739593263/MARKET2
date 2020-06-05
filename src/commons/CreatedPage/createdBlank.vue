@@ -1,7 +1,7 @@
 <template>
   <div id="created-blank">
 <!--    <h2 v-if="toBlank">HHH</h2>-->
-    <form action="" id="A_form">
+    <form v-if="param.produceItem==='A类用户'" action="" id="A_form">
       <scroll class="create_A_scroll">
         <h3>{{param.name}}商品创建</h3>
         <br>
@@ -44,22 +44,22 @@
           <b style="float: right" @click="remove('A')">X</b>
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="province">City</label>
-              <input type="text" class="form-control" id="province" placeholder="省份" required>
+              <label for="A_province">City</label>
+              <input type="text" class="form-control" id="A_province" placeholder="省份" required>
               <!--            <div class="invalid-tooltip">-->
               <!--              请输入正确省份-->
               <!--            </div>-->
             </div>
             <div class="col-md-3 mb-3">
-              <label for="city">State</label>
-              <input type="text" class="form-control" id="city" placeholder="城市/乡镇" required>
+              <label for="A_city">State</label>
+              <input type="text" class="form-control" id="A_city" placeholder="城市/乡镇" required>
               <!--            <div class="invalid-tooltip">-->
               <!--              Please provide a valid state.-->
               <!--            </div>-->
             </div>
             <div class="col-md-3 mb-3">
-              <label for="post">邮编</label>
-              <input type="text" class="form-control" id="post" placeholder="邮编" required>
+              <label for="A_post">邮编</label>
+              <input type="text" class="form-control" id="A_post" placeholder="邮编" required>
               <!--            <div class="invalid-tooltip">-->
               <!--              Please provide a valid zip.-->
               <!--            </div>-->
@@ -93,6 +93,120 @@
       </scroll>
 
     </form>
+
+    <form v-if="param.produceItem==='B类用户'" action="" id="B_form">
+      <scroll class="create_A_scroll">
+        <h3>{{param.name}}创建</h3>
+
+        <div v-for="(item,index) in toBlank['A']" class="alert alert-primary" role="alert">
+          <b style="float: right" @click="remove('A')">X</b>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="B_province">City</label>
+              <input type="text" class="form-control" id="B_province" placeholder="省份" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              请输入正确省份-->
+              <!--            </div>-->
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="B_city">State</label>
+              <input type="text" class="form-control" id="B_city" placeholder="城市/乡镇" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              Please provide a valid state.-->
+              <!--            </div>-->
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="B_post">邮编</label>
+              <input type="text" class="form-control" id="B_post" placeholder="邮编" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              Please provide a valid zip.-->
+              <!--            </div>-->
+            </div>
+          </div>
+        </div>
+
+        <div v-for="(item,index) in toBlank['B']" class="alert alert-secondary" role="alert">
+          secondary+{{index}}
+          <b style="float: right" @click="remove('B')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['C']" class="alert alert-success" role="alert">
+          success+{{index}}
+          <b style="float: right" @click="remove('C')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['D']" class="alert alert-warning" role="alert">
+          warning+{{index}}
+          <b style="float: right" @click="remove('D')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['E']" class="alert alert-info" role="alert">
+          info+{{index}}
+          <b style="float: right" @click="remove('E')">X</b>
+        </div>
+
+        <div class="submit">
+          <button type="button" class="btn btn-info">完成创建</button>
+        </div>
+      </scroll>
+    </form>
+
+    <form v-if="param.produceItem==='C类用户'" action="" id="C_form">
+      <scroll class="create_A_scroll">
+        <h3>{{param.name}}团队/活动创建</h3>
+
+        <div v-for="(item,index) in toBlank['A']" class="alert alert-primary" role="alert">
+          <b style="float: right" @click="remove('A')">X</b>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="C_province">City</label>
+              <input type="text" class="form-control" id="C_province" placeholder="省份" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              请输入正确省份-->
+              <!--            </div>-->
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="C_city">State</label>
+              <input type="text" class="form-control" id="C_city" placeholder="城市/乡镇" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              Please provide a valid state.-->
+              <!--            </div>-->
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="C_post">邮编</label>
+              <input type="text" class="form-control" id="C_post" placeholder="邮编" required>
+              <!--            <div class="invalid-tooltip">-->
+              <!--              Please provide a valid zip.-->
+              <!--            </div>-->
+            </div>
+          </div>
+        </div>
+
+        <div v-for="(item,index) in toBlank['B']" class="alert alert-secondary" role="alert">
+          secondary+{{index}}
+          <b style="float: right" @click="remove('B')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['C']" class="alert alert-success" role="alert">
+          success+{{index}}
+          <b style="float: right" @click="remove('C')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['D']" class="alert alert-warning" role="alert">
+          warning+{{index}}
+          <b style="float: right" @click="remove('D')">X</b>
+        </div>
+
+        <div v-for="(item,index) in toBlank['E']" class="alert alert-info" role="alert">
+          info+{{index}}
+          <b style="float: right" @click="remove('E')">X</b>
+        </div>
+
+        <div class="submit">
+          <button type="button" class="btn btn-info">完成创建</button>
+        </div>
+      </scroll>
+    </form>
   </div>
 </template>
 
@@ -104,6 +218,7 @@
     props:{
       param:{
         name:"",
+        produceItem:"",
       },
       toBlank:{
         // type: Boolean,

@@ -3,7 +3,7 @@
     <blank>
       <nav aria-label="breadcrumb" slot="introduce">
         <ul class="nav">
-          <li class="breadcrumb-item"><h4>SURVEY</h4></li>
+          <li class="breadcrumb-item"><h4>创建列表</h4></li>
           <li class="breadcrumb-item"><a href="#">Library</a></li>
           <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ul>
@@ -32,6 +32,7 @@
     position: fixed;
     left: 24vw;
     top: 7vh;
+
   }
 
   #blankComponent img{

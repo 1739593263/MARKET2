@@ -42,6 +42,8 @@
           console.log(res);
           if(res.loginData.pro){
             // res.loginData.pro
+            this.$session.start();
+            this.$session.set("loginData",res.loginData);
             this.$router.push({name: res.loginData.pro,params:{"data":res.loginData.data}});
           }else{
             this.errs = res.loginData.error;
@@ -57,7 +59,7 @@
 
       addressCheck(){
         // console.log(this.$router.currentRoute.fullPath);
-        this.$emit("note",this.note);
+        this.$emit("isShowNavi",this.note);
       }
     },
     created() {

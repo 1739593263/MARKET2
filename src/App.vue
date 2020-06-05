@@ -8,14 +8,15 @@
     <total-navi-bar v-if="naviMark"/>
 
     <transition name="into">
-      <router-view @note="noc"/>
+      <router-view @isShowNavi="isShowNavi"/>
     </transition>
 
-    {{this.$route.params}}
   </div>
 </template>
 
 <script>
+  import VueSession from 'vue-session'
+
   import totalNaviBar from "./components/totalNaviBar/totalNaviBar";
   export default {
     name:"app",
@@ -28,8 +29,7 @@
       totalNaviBar,
     },
     methods:{
-      noc(item){
-        console.log("yy",item);
+      isShowNavi(item){
         this.naviMark = item;
       },
     },

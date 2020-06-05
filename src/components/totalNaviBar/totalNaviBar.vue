@@ -16,12 +16,12 @@
             </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <router-link to="/login">login</router-link>
+            <a class="nav-link active" href="#" @click="logOut">
+              登出
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link1</a>
+            <a class="nav-link" @click="goMain" href="#">主页</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">link2</a>
@@ -45,6 +45,17 @@
     components:{
       NaviBar,
       NaviBarItem
+    },
+    methods:{
+      logOut(){
+        this.$session.destroy();
+        this.$router.push({name:"Login"})
+      },
+      goMain(){
+        if(this.$session.has("loginData")){
+          this.$router.push({name:this.$session.get("loginData").pro})
+        }
+      }
     }
   }
 </script>
