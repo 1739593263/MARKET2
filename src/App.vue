@@ -8,7 +8,7 @@
     <total-navi-bar v-if="naviMark"/>
 
     <transition name="into">
-      <router-view @isShowNavi="isShowNavi"/>
+      <router-view class="view" @isShowNavi="isShowNavi"/>
     </transition>
 
   </div>
@@ -53,8 +53,9 @@
     animation: moveInUp .2s ease-in;
   }
 
-  .rou{
-
+  .view{
+      position: relative;
+      top: 7vh;
   }
 
 </style>

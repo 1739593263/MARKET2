@@ -36,7 +36,7 @@
     background-color: rgba(100,100,100,.1);
 
     position:absolute;
-    top:12vh;
+    top:5vh;
 
     width: 100vw;
     height: 100vh;

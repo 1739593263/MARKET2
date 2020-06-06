@@ -132,7 +132,7 @@
     height: 100vh;
     position: absolute;
     text-align: center;
-    top: 6vh;
+    top: 0vh;
 
     background-color:  rgba(90,70,100,.1);
   }

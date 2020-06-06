@@ -71,6 +71,7 @@
 <style scoped>
   .container{
     padding: 50%;
+    width: 100vw;
     /*background-color: #a6a3a5;*/
     /*border: 1px lightgray solid;*/
     /*border-radius: 3%;*/

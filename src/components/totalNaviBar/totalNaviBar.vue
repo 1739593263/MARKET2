@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">link2</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="@/assets/img/NaviBar/account_box-24px.svg" alt=""></a>
+            <a class="nav-link" href="#" @click="goPerson"><img src="@/assets/img/NaviBar/account_box-24px.svg" alt=""></a>
           </li>
         </ul>
 
@@ -55,6 +55,9 @@
         if(this.$session.has("loginData")){
           this.$router.push({name:this.$session.get("loginData").pro})
         }
+      },
+      goPerson(){
+        this.$router.push({name: "person"})
       }
     }
   }

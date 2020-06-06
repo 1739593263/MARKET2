@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 
 const login = () => import("../views/login/login.vue");
 
+const person = () => import("../views/person/person.vue");
+
 const business = () => import("../views/business/business.vue");
 
 const warehouse = () => import("../views/warehouse/warehouse.vue");
@@ -34,6 +36,12 @@ Vue.use(VueRouter)
       path: '/',
       name: 'Login',
       component: login
+    },
+
+    {
+      path: '/person',
+      name: 'person',
+      component: person
     },
 
     {
